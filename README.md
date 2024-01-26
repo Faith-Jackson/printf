@@ -56,13 +56,13 @@ This project aims to implement a custom version of the printf function in the C 
 	Handles the following custom conversion specifier:
 	r : prints the reversed string
 14. The flood of print has turned reading into a process of gulping rather than savoring
-	Handles the following custom conversion specifier:
-	R: prints the rot13'ed string
+''''	Handles the following custom conversion specifier:
+''''	R: prints the rot13'ed string
 15. Tweet(X)
-	All the above options work well together.
-	Well done on completing this project! Let the world hear about this milestone achieved.
+''''	All the above options work well together.
+''''	Well done on completing this project! Let the world hear about this milestone achieved.
 
-# Contributors
+## Contributors
 This project is a collobarated work of:
-1.Faith Jacskon
-Anieyie Asuquo 
+https://github.com/Faith-Jackson
+https://github.com/Anieyie
