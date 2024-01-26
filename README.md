@@ -2,10 +2,10 @@
 # Description
 This is a C programming language repository showcasing the versatile printf() function. Developed as a collaborative project by Faith Jackson and Anieyie Asuquo during our Printf Collaborative Project in ALX Software Engineering Program (Cohort 22).
 
-#Overview
+# Overview
 This project aims to implement a custom version of the printf function in the C programming language. The printf function in C is widely used for formatted output to the standard output stream (stdout). Our custom implementation will handle various conversion specifiers, flag characters, length modifiers, field width, precision, and custom conversion specifiers, providing functionality similar to the standard printf function.
 
-#Tasks
+# Tasks
 0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
 	 Handles the following conversion specifiers:
 	 c
@@ -58,11 +58,11 @@ This project aims to implement a custom version of the printf function in the C 
 14. The flood of print has turned reading into a process of gulping rather than savoring
 	Handles the following custom conversion specifier:
 	R: prints the rot13'ed string
-15. *Tweet(X)
+15. Tweet(X)
 	All the above options work well together.
 	Well done on completing this project! Let the world hear about this milestone achieved.
 
-#Contributors
+# Contributors
 This project is a collobarated work of:
 1.Faith Jacskon
 Anieyie Asuquo 
