@@ -11,7 +11,7 @@
 int _printf(const char *format, ...)
 {
     va_list args;
-    int count;
+    int count = 0;
     const char *ptr;
 
     if (!format)
@@ -19,7 +19,6 @@ int _printf(const char *format, ...)
 
     va_start(args, format);
 
-    count = 0;
     ptr = format;
 
     while (*ptr)
@@ -29,7 +28,11 @@ int _printf(const char *format, ...)
             ptr++; /* Move past '%' */
 
             if (*ptr == '\0')
-                break; /* Handle incomplete format string */
+            {
+                /* Handle incomplete format string */
+                count += write(1, "%", 1);
+                break;
+            }
 
             if (*ptr == 'c')
             {
