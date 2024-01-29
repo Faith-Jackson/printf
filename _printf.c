@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdarg.h>
 #include <unistd.h>
 
 /**
@@ -10,48 +11,60 @@
 int _printf(const char *format, ...)
 {
     va_list args;
-    int count = 0;
+    int count;
     const char *ptr;
+
+    if (!format)
+        return -1;
 
     va_start(args, format);
 
-    for (ptr = format; *ptr != '\0'; ptr++)
+    count = 0;
+    ptr = format;
+
+    while (*ptr)
     {
-        if (*ptr != '%')
+        if (*ptr == '%')
         {
-            /* Write character to stdout */
-            write(1, ptr, 1);
-            count++;
-        }
-        else
-        {
-            ptr++; /* Move to the next character after '%' */
+            ptr++; /* Move past '%' */
+
+            if (*ptr == '\0')
+                break; /* Handle incomplete format string */
 
             if (*ptr == 'c')
             {
                 /* Handle character specifier */
                 char c = va_arg(args, int);
-                write(1, &c, 1);
-                count++;
+                count += write(1, &c, 1);
             }
             else if (*ptr == 's')
             {
                 /* Handle string specifier */
                 char *s = va_arg(args, char *);
-                while (*s != '\0')
-                {
-                    write(1, s, 1);
-                    s++;
-                    count++;
-                }
+                int len = 0;
+                while (s[len])
+                    len++;
+                count += write(1, s, len);
             }
             else if (*ptr == '%')
             {
                 /* Handle percent specifier */
-                write(1, "%", 1);
-                count++;
+                count += write(1, "%", 1);
+            }
+            else
+            {
+                /* Invalid specifier, treat as literal '%' */
+                count += write(1, "%", 1);
+                count += write(1, ptr, 1);
             }
         }
+        else
+        {
+            /* Write character to stdout */
+            count += write(1, ptr, 1);
+        }
+
+        ptr++;
     }
 
     va_end(args);
