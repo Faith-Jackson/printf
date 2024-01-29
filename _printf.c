@@ -1,61 +1,40 @@
 #include "main.h"
 
 /**
- * _printf - Custom printf function
- * @format: Format string
- * Return: Number of characters printed
+ * _printf - Receives the main string and all the necessary parameters to
+ * print a formated string
+ * @format: A string containing all the desired characters
+ * Return: A total count of the characters printed
  */
+
 int _printf(const char *format, ...)
 {
-    int (*print_function)(va_list, flags_t *);
-    const char *format_iterator;
-    va_list args;
-    flags_t flags = {0, 0, 0};
-    int character_count = 0;
+	int printed_chars;
+	conver_t f_list[] = {
+		{"%", print_percent},
+		{"d", print_integer},
+		{"i", print_integer},
+		{"c", print_char},
+		{"s", print_string},
+		{"b", print_binary},
+		{"u", print_unsigned_integer},
+		{"o", print_octal},
+		{"x", print_hex},
+		{"X", print_HEX},
+		{"S", print_String},
+		{"p", print_pointer},
+		{"r", print_rev},
+		{"R", print_rot13},
+		{NULL, NULL},
+	};
+	va_list arg_list;
 
-    va_start(args, format);
+	if (format == NULL)
+		return (-1);
 
-    /* Check if format is NULL or empty */
-    if (!format || (format[0] == '%' && !format[1]))
-        return (-1);
-
-    /* Check for invalid format specifier */
-    if (format[0] == '%' && format[1] == ' ' && !format[2])
-        return (-1);
-
-    /* Iterate through the format string */
-    for (format_iterator = format; *format_iterator; format_iterator++)
-    {
-        if (*format_iterator == '%')
-        {
-            format_iterator++;
-
-            /* Handle double percent sign */
-            if (*format_iterator == '%')
-            {
-                character_count += _putchar('%');
-                continue;
-            }
-
-            /* Handle flags */
-            while (get_flag(*format_iterator, &flags))
-                format_iterator++;
-
-            /* Get corresponding print function */
-            print_function = get_print(*format_iterator);
-
-            /* Call print function or handle unsupported specifier */
-            character_count += (print_function)
-                                   ? print_function(args, &flags)
-                                   : _printf("%%%c", *format_iterator);
-        }
-        else
-        {
-            /* Print non-format characters */
-            character_count += _putchar(*format_iterator);
-        }
-    }
-
-    /* Flush remaining characters and clean up */
-    _putchar(-1
+	va_start(arg_list, format);
+	printed_chars = format_reciever(format, f_list, arg_list);
+	va_end(arg_list);
+	return (printed_chars);
+}
 
