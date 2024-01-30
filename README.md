@@ -1,6 +1,6 @@
 # printf
 # Description
-This is a C programming language repository showcasing the versatile printf() function. Developed as a collaborative project by Faith Jackson and Anieyie Asuquo during our Printf Collaborative Project in ALX Software Engineering Program (Cohort 22).
+This is a C programming language repository showcasing the versatile printf() function. Developed as a collaborative project by Faith Jackson and Anieyie Asuquo during our Printf Collaborative Project in ALX Software Engineering Program (Cohort 22, Month 1).
 
 # Overview
 This project aims to implement a custom version of the printf function in the C programming language. The printf function in C is widely used for formatted output to the standard output stream (stdout). Our custom implementation will handle various conversion specifiers, flag characters, length modifiers, field width, precision, and custom conversion specifiers, providing functionality similar to the standard printf function.
