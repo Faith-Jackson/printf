@@ -7,7 +7,6 @@ int main(void)
     len = _printf("Let's test our _printf function: %s, %c, %%\n", "Hello", 'A');
     _printf("Number of characters printed: %d\n", len);
 
-    return (0
-
+    return count;
 }
 
