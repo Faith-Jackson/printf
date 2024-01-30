@@ -58,6 +58,8 @@ This project aims to implement a custom version of the printf function in the C 
 -	All the above options work well together.
 -	Well done on completing this project! Let the world hear about this milestone achieved.
 
+Working on this project has really been challanging but fun. We worked together as partners
+
 ## Contributors
 This project is a collobarated work of:
 - [Faith Jackson](https://github.com/Faith-Jackson)
