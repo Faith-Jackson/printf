@@ -1,7 +1,8 @@
 #include "main.h"
 #include <stdarg.h>
 #include <unistd.h>
-#include <stdio.h>  /* Include stdio.h for sprintf function */
+#include <stdio.h> 
+/* Include stdio.h for sprintf function */
 
 int _printf(const char *format, ...)
 {
@@ -22,7 +23,7 @@ int _printf(const char *format, ...)
         }
         else
         {
-            format++; /* Move past '%' */
+            format++; /* Move past the '%' */
 
             if (*format == '\0')
             {
@@ -73,6 +74,6 @@ int _printf(const char *format, ...)
     }
 
     va_end(args);
-    return 0;
+    return coun;
 }
 
